@@ -1,13 +1,49 @@
-# `zero-one-xxx`
+# `zero-one-09oa`
 
-xxx相关概念参考：
+oa相关概念参考：
 
-- 
-- 
+- https://baike.baidu.com/item/OA%E7%B3%BB%E7%BB%9F/10677850
+- https://zh.wikipedia.org/wiki/%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96
 
 ## 项目简介
 
+**项目背景**
 
+在信息技术迅猛发展的今天，传统办公管理模式已难以满足现代企业对高效、灵活与智能化管理的需求。为此，我们开发了智能化办公自动化系统，旨在借助信息化手段，全面提升企业运营效率，助力数字化转型。
+
+**项目目标**
+
+零壹办公自动化项目的核心目标是实现办公流程的全面数字化与自动化，构建高效、智能的办公环境。致力于打造一个集成化的管理平台，以支持企业在快速变化的市场中保持竞争力。具体目标包括：
+
+- **提升工作效率**：通过自动化工作流程，减少手动操作和人力干预，提高工作效率。
+- **信息共享与协作**：实现跨部门、跨区域的信息共享与实时协作，打破信息孤岛，促进团队合作。
+- **数据分析与决策支持**：通过大数据分析，为管理层提供精准的决策支持，助力战略制定与风险控制。
+- **用户友好界面**：设计直观易用的用户界面，提升用户体验，降低培训成本。
+
+**核心功能**
+
+- **门户管理**
+  - 支持集团、部门及营销等各类门户系统的建设。
+  - 提供新业务系统整体页面的包装和设计，确保界面友好且易于使用。
+- **流程管理**
+  - 自定义工作流程，融入电子审批、任务分配和进度跟踪。
+  - 确保各项工作高效、有序地进行，实现流程透明化。
+- **信息管理**
+  - 灵活的表单配置与多级别访问权限控制。
+  - 迅速实现信息模块的配置，支持主题选择及样式定制化，满足不同企业需求。
+- **数据管理**
+  - 提供丰富的数据报表和可视化分析工具。
+  - 帮助企业实时监控各项运营指标，助力决策支持。
+- **服务开发**
+  - 使用脚本轻松创建服务，动态调整业务逻辑。
+  - 在无需重新编译和发布的情况下，灵活应对用户复杂要求。
+- **移动办公**
+  - 支持多终端访问，实现随时随地办公的需求。
+  - 提升企业灵活应变的能力，满足远程工作趋势。
+
+通过智能化办公自动化系统，企业将实现流程的高效管理、信息的快速流转及数据的智能分析，推动整体运营效率的提升。
+
+我们的智能化办公自动化系统不仅是一次技术的创新，更是企业管理理念的变革。通过这一系统，企业将迎来全新的数字化办公时代，实现管理的智能化、服务的精准化与决策的科学化。我们期待与您携手，共同开创未来的办公新模式。
 
 ## 系统架构图
 
@@ -16,7 +52,7 @@ xxx相关概念参考：
 ![architecture](./documents/00、preview-pic/architecture.jpg)
 
 ## 项目结构说明
-> `zero-one-xxx`  
+> `zero-one-09oa`  
 >
 > > `.gitignore` -- 忽略提交配置
 > >
@@ -24,11 +60,11 @@ xxx相关概念参考：
 > >
 > > `documents` -- 环境搭建、编码规范、项目需求等等文档资源
 > >
-> > `xxx-java` -- `Java`项目主体
+> > `oa-java` -- `Java`项目主体
 > >
-> > `xxx-cpp` -- `C++`项目主体
+> > `oa-cpp` -- `C++`项目主体
 > >
-> > `xxx-frontend` -- 前端项目主体
+> > `oa-frontend` -- 前端项目主体
 
 ## 软件架构
 
@@ -99,15 +135,17 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 
 #### 扩展技术栈
 
-| 技术                 | 说明          | 版本   | 备注                                                         |
-| -------------------- | ------------- | ------ | ------------------------------------------------------------ |
-| `ECharts`            | 图表框架      | latest | [`Apache ECharts`](https://echarts.apache.org/handbook/zh/get-started/) |
-| `AJ-Captcha`         | 验证码插件    | 1.3.0  | https://ajcaptcha.beliefteam.cn/captcha-doc/                 |
-| `SheetJS`            | 电子表格插件  | 0.20.2 | https://docs.sheetjs.com/docs/<br>https://docs.sheetjs.com/docs/demos/frontend/vue |
-| `vue-plugin-hiprint` | 打印插件      | 0.0.56 | https://gitee.com/CcSimple/vue-plugin-hiprint                |
-| `wangEditor`         | 富文本编辑器  | v5     | https://www.wangeditor.com/v5/                               |
-| `pdfobject`          | `pdf`预览插件 | 2.3.0  | https://github.com/pipwerks/PDFObject                        |
-| `Vitest`             | 测试框架      | 1.6.0  | https://cn.vitest.dev/<br>https://cn.vuejs.org/guide/scaling-up/testing.html |
+| 技术                 | 说明           | 版本   | 备注                                                         |
+| -------------------- | -------------- | ------ | ------------------------------------------------------------ |
+| `ECharts`            | 图表框架       | latest | [`Apache ECharts`](https://echarts.apache.org/handbook/zh/get-started/) |
+| `AJ-Captcha`         | 验证码插件     | 1.3.0  | https://ajcaptcha.beliefteam.cn/captcha-doc/                 |
+| `SheetJS`            | 电子表格插件   | 0.20.2 | https://docs.sheetjs.com/docs/<br>https://docs.sheetjs.com/docs/demos/frontend/vue |
+| `vue-plugin-hiprint` | 打印插件       | 0.0.56 | https://gitee.com/CcSimple/vue-plugin-hiprint                |
+| `wangEditor`         | 富文本编辑器   | v5     | https://www.wangeditor.com/v5/                               |
+| `pdfobject`          | `pdf`预览插件  | 2.3.0  | https://github.com/pipwerks/PDFObject                        |
+| `Vitest`             | 测试框架       | 1.6.0  | https://cn.vitest.dev/<br>https://cn.vuejs.org/guide/scaling-up/testing.html |
+| `FcDesigner`         | 表单设计器     | latest | https://view.form-create.com/                                |
+| `LogicFlow`          | 流程图编辑框架 | `2.x`  | https://github.com/didi/LogicFlow<br>https://site.logic-flow.cn/ |
 
 ### `CPP`技术栈
 
@@ -188,7 +226,7 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 
 ## 特别鸣谢
 
-`zero-one-xxx`的诞生离不开开源软件和社区的支持，感谢以下开源项目及项目维护者：
+`zero-one-09oa`的诞生离不开开源软件和社区的支持，感谢以下开源项目及项目维护者：
 
 - `spring`：https://github.com/spring-projects
 - `alibaba`：https://github.com/alibaba
