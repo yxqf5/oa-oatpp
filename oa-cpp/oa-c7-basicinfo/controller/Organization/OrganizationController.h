@@ -40,13 +40,13 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(OrganizationNameJsonVO);
 		// 定义其他查询参数描述
-		API_DEF_ADD_QUERY_PARAMS(String, "organizationName", ZH_WORDS_GETTER("organization.query-organization.name"), "li ming", true);
-		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("organization.query-organization.id"), "1", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "xname", ZH_WORDS_GETTER("organization.query-organization.name"), "li ming", true);
+		//API_DEF_ADD_QUERY_PARAMS(String, "xid", ZH_WORDS_GETTER("organization.query-organization.id"), "1", false);
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/organization/query-organization-name", queryOrganizationInfo, QUERY(String,organizationName)) {
+	ENDPOINT(API_M_GET, "/organization/query-organization-name", queryOrganizationInfo, QUERY(String,xname)) {
 		// 呼叫执行函数响应结果
-		API_HANDLER_RESP_VO(execcuteQueryOrganizationInfo(organizationName));
+		API_HANDLER_RESP_VO(execcuteQueryOrganizationInfo(xname));
 	}
 
 //	---------------------------------------------------------------------
@@ -60,19 +60,19 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(OrganizationMemberJsonVO);
 		// 定义其他查询参数描述
-		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("organization.query-organization-member.name"), "li ming", true);
+		API_DEF_ADD_QUERY_PARAMS(String, "xname", ZH_WORDS_GETTER("organization.query-organization-member.name"), "li ming", true);
 		//API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("organization.query-organization.id"), "1", false);
 	}
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/organization/query-organization-member-name", queryOrganizationMember, QUERY(String,name)) {
+	ENDPOINT(API_M_GET, "/organization/query-organization-member-name", queryOrganizationMember, QUERY(String,xname)) {
 		// 呼叫执行函数响应结果
-		API_HANDLER_RESP_VO(execcuteQueryOrganizationMember(name));
+		API_HANDLER_RESP_VO(execcuteQueryOrganizationMember(xname));
 	}
 	//获取组织成员名称接口
 
 private: // 定义接口执行函数
-	OrganizationNameJsonVO::Wrapper execcuteQueryOrganizationInfo(const String& name);
-	OrganizationMemberJsonVO::Wrapper execcuteQueryOrganizationMember(const String& name);
+	OrganizationNameJsonVO::Wrapper execcuteQueryOrganizationInfo(const String& xname);
+	OrganizationMemberJsonVO::Wrapper execcuteQueryOrganizationMember(const String& xname);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

@@ -27,8 +27,9 @@ class PersonInfoVO: public oatpp::DTO
 {
 	DTO_INIT(PersonInfoVO, DTO);
 	
-	API_DTO_FIELD(String, name, ZH_WORDS_GETTER("person.query-person.name"), true ,"Rif");
-	API_DTO_FIELD(String, id, ZH_WORDS_GETTER("person.query-person.id"), true ,"007");
+	DTO_FIELD(List<Object<PersonInfoVO>>, list);
+	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("person.query-person.name"), true ,"Rif");
+	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("person.query-person.id"), true ,"007");
 
 	//DTO_FIELD(String, name);
 	//DTO_FIELD_INFO(name) {

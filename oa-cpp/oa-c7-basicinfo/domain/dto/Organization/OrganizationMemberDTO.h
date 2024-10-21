@@ -27,9 +27,9 @@ class OrganizationMember: public oatpp::DTO
 {
 	DTO_INIT(OrganizationMember, DTO);
 	
-	API_DTO_FIELD(String, name, ZH_WORDS_GETTER("organization.query-organization-member.name"), true ,"Rif");
-	API_DTO_FIELD(String, id, ZH_WORDS_GETTER("organization.query-organization-member.id"), true ,"007");
-	API_DTO_FIELD(String, company, ZH_WORDS_GETTER("organization.query-organization-member.company"), true ,"01 Unoversity");
+	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization-member.name"), true ,"Rif");
+	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization-member.id"), true ,"007");
+	API_DTO_FIELD(String, xemployee, ZH_WORDS_GETTER("organization.query-organization-member.company"), true ,"01 Unoversity");
 	}
 };
 

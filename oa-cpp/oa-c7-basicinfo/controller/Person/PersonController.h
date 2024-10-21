@@ -21,6 +21,7 @@
 
 #include "domain/vo/BaseJsonVO.h"
 #include "domain/vo/Person/PersonInfoVO.h"
+#include "domain/query/PersonQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -38,19 +39,23 @@ public: // 定义接口
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(PersonInfoJsonVO);
 		// 定义其他查询参数描述
-		API_DEF_ADD_QUERY_PARAMS(String, "name", ZH_WORDS_GETTER("person.query-person.name"), "R", true);
+		API_DEF_ADD_QUERY_PARAMS(String, "xname", ZH_WORDS_GETTER("person.query-person.name"), "R", true);
+		API_DEF_ADD_QUERY_PARAMS(UInt64, "pageNumber", ZH_WORDS_GETTER("person.query-person.pageNumber"), 1 , true);
 		//API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("organization.query-organization.id"), "1", false);
 	}
+
 	// 3.2 定义查询接口处理
-	ENDPOINT(API_M_GET, "/person/query-preson-name", queryPerson, QUERY(String,name)) {
+	ENDPOINT(API_M_GET, "/person/query-preson-name", queryPerson, QUERIES(QueryParams,queryParams)) {
+		// 解析查询参数为Query领域模型
+		API_HANDLER_QUERY_PARAM(perQuery, PersonQuery, queryParams);
 		// 呼叫执行函数响应结果
-		API_HANDLER_RESP_VO(execcuteQueryPerson(name));
+		API_HANDLER_RESP_VO(execcuteQueryPerson(perQuery));
 	}
 	//获取组织成员名称接口
 
 	
 private: // 定义接口执行函数
-	PersonInfoJsonVO::Wrapper execcuteQueryPerson(const String& name);
+	PersonInfoJsonVO::Wrapper execcuteQueryPerson(const PersonQuery::Wrapper& perQuery);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

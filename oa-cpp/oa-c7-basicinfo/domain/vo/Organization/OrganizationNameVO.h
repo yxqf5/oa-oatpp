@@ -33,8 +33,8 @@ class OrganizationNameVO : public oatpp::DTO
 	//	info->description = "Organization Name";
 	//}
 
-	API_DTO_FIELD(String, name, ZH_WORDS_GETTER("organization.query-organization.name"), true ,"01 School");
-	API_DTO_FIELD(String, id, ZH_WORDS_GETTER("organization.query-organization.id"), true ,"002");
+	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization.name"), true ,"01 School");
+	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization.id"), true ,"002");
 	API_DTO_FIELD(String, pid, ZH_WORDS_GETTER("organization.query-organization.pid"), true ,"001");
 
 	//DTO_FIELD(String, id);

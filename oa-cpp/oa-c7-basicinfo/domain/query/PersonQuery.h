@@ -1,8 +1,9 @@
- /*
+#pragma once
+/*
  Copyright Zero One Star. All rights reserved.
 
- @Author: Rif
- @Date: 2024/10/19 11:25:10
+ @Author: awei
+ @Date: 2022/10/25 11:36:29
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,30 +17,36 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ORGANIZATIONMEMBERDTO_H_
-#define _ORGANIZATIONMEMBERDTO_H_
+#ifndef _SAMPLE_QUERY_
+#define _SAMPLE_QUERY_
 
-#include "../../GlobalInclude.h"
+#include "../GlobalInclude.h"
+#include "domain/query/PageQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class PersonInfo: public oatpp::DTO
+/**
+ * 示例分页查询对象
+ */
+class PersonQuery : public PageQuery
 {
-	DTO_INIT(PersonInfo, DTO);
-
-	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("person.query-person.name"), true ,"Rif");
-	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("person.query-person.id"), true ,"007");
-	
-	//DTO_FIELD(String, name);
-	//DTO_FIELD_INFO(name) {
-	//	info->description = "Person Info";
-	//}
-	//DTO_FIELD(String, id);
-	//DTO_FIELD_INFO(id) {
-	//	info->description = ZH_WORDS_GETTER("sample.field.age");
-	//}
+	DTO_INIT(PersonQuery, PageQuery);
+	// 姓名
+	DTO_FIELD(String, name);
+	DTO_FIELD_INFO(name) {
+		info->description = ZH_WORDS_GETTER("sample.field.name");
+	}
+	// 性别
+	DTO_FIELD(String, sex);
+	DTO_FIELD_INFO(sex) {
+		info->description = ZH_WORDS_GETTER("sample.field.sex");
+	}
+	// 年龄
+	DTO_FIELD(UInt32, age);
+	DTO_FIELD_INFO(age) {
+		info->description = ZH_WORDS_GETTER("sample.field.age");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
-
-#endif // !_ORGANIZATIONMEMBERDTO_H_
+#endif // !_SAMPLE_QUERY_

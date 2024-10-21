@@ -27,8 +27,8 @@ class OrganizationName : public oatpp::DTO
 {
 	DTO_INIT(OrganizationName, DTO);
 
-	API_DTO_FIELD(String, name, ZH_WORDS_GETTER("organization.query-organization.name"), true ,"01 School");
-	API_DTO_FIELD(String, id, ZH_WORDS_GETTER("organization.query-organization.id"), true ,"01");
+	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization.name"), true ,"01 School");
+	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization.id"), true ,"01");
 	
 	//DTO_FIELD(String, name);
 	//DTO_FIELD_INFO(name) {
