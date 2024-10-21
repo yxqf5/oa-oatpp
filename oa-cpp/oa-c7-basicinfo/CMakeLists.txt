@@ -7,7 +7,6 @@ cmake_minimum_required (VERSION 3.8)
 set(IS_ARCH_DEMO false)
 
 # 设置文件名称
-#set (appName arch-demo)
 set (appName oa-c7-basicinfo)
 
 # 包含库目录

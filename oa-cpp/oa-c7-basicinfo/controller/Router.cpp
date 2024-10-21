@@ -26,9 +26,7 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
-#include "Organization/OrganizationController.h"
-#include "Person/PersonController.h"
-
+#include "controller/column/setting/ColumnsInfoController.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -53,8 +51,9 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(OrganizationController);
-	ROUTER_SIMPLE_BIND(PersonController);
+	ROUTER_SIMPLE_BIND(ColumnsInfoController); 
+
+
 }
 
 #ifdef HTTP_SERVER_DEMO
