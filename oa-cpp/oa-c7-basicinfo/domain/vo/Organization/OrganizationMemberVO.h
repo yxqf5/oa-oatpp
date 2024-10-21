@@ -20,16 +20,19 @@
 #define _ORGANIZATIONMEMBERVO_H_
 
 #include "../../GlobalInclude.h"
+#include "../../dto/Organization/OrganizationMemberDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 class OrganizationMemberVO: public oatpp::DTO
 {
 	DTO_INIT(OrganizationMemberVO, DTO);
+
+	DTO_FIELD(List<Object<OrganizationMemberDTO>>, list);
 	
-	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization-member.summary"), true ,"Rif");
-	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization-member.id"), true ,"007");
-	API_DTO_FIELD(String, xemployee, ZH_WORDS_GETTER("organization.query-organization-member.company"), true ,"01 Unoversity");
+	//API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization-member.summary"), true ,"Rif");
+	//API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization-member.id"), true ,"007");
+	//API_DTO_FIELD(String, xemployee, ZH_WORDS_GETTER("organization.query-organization-member.company"), true ,"01 Unoversity");
 };
 
 /**

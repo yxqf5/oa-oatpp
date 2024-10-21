@@ -16,16 +16,16 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ORGANIZATIONMEMBERDTO_H_
-#define _ORGANIZATIONMEMBERDTO_H_
+#ifndef _PERSONINFODTO_H_
+#define _PERSONINFODTO_H_
 
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class PersonInfo: public oatpp::DTO
+class PersonInfoDTO: public oatpp::DTO
 {
-	DTO_INIT(PersonInfo, DTO);
+	DTO_INIT(PersonInfoDTO, DTO);
 
 	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("person.query-person.name"), true ,"Rif");
 	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("person.query-person.id"), true ,"007");
@@ -42,4 +42,4 @@ class PersonInfo: public oatpp::DTO
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_ORGANIZATIONMEMBERDTO_H_
+#endif    // !_PERSONINFODTO_H_

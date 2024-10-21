@@ -20,6 +20,7 @@
 #define _PERSONINFOVO_H_
 
 #include "../../GlobalInclude.h"
+#include "../../dto/Person/PersonInfoDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -27,9 +28,9 @@ class PersonInfoVO: public oatpp::DTO
 {
 	DTO_INIT(PersonInfoVO, DTO);
 	
-	DTO_FIELD(List<Object<PersonInfoVO>>, list);
-	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("person.query-person.name"), true ,"Rif");
-	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("person.query-person.id"), true ,"007");
+	DTO_FIELD(List<Object<PersonInfoDTO>>, list);
+	//API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("person.query-person.name"), true ,"Rif");
+	//API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("person.query-person.id"), true ,"007");
 
 	//DTO_FIELD(String, name);
 	//DTO_FIELD_INFO(name) {

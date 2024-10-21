@@ -16,16 +16,16 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-#ifndef _ORGANIZATIONMEMBERDTO_H_
-#define _ORGANIZATIONMEMBERDTO_H_
+#ifndef _ORGANIZATIONNAMEDTO_H_
+#define _ORGANIZATIONNAMEDTO_H_
 
 #include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class OrganizationName : public oatpp::DTO
+class OrganizationNameDTO : public oatpp::DTO
 {
-	DTO_INIT(OrganizationName, DTO);
+	DTO_INIT(OrganizationNameDTO, DTO);
 
 	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization.name"), true ,"01 School");
 	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization.id"), true ,"01");
@@ -43,4 +43,4 @@ class OrganizationName : public oatpp::DTO
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // !_ORGANIZATIONMEMBERDTO_H_
+#endif // !_ORGANIZATIONNAMEDTO_H_

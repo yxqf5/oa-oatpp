@@ -20,6 +20,7 @@
 #define _ORGANIZATIONNAMEVO_H_
 
 #include "../../GlobalInclude.h"
+#include "../../dto/Organization/OrganizationNameDTO.h"
 #include "ApiHelper.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -33,9 +34,10 @@ class OrganizationNameVO : public oatpp::DTO
 	//	info->description = "Organization Name";
 	//}
 
-	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization.name"), true ,"01 School");
-	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization.id"), true ,"002");
-	API_DTO_FIELD(String, pid, ZH_WORDS_GETTER("organization.query-organization.pid"), true ,"001");
+	DTO_FIELD(List<Object<OrganizationNameDTO>>, list);
+	//API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization.name"), true ,"01 School");
+	//API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization.id"), true ,"002");
+	//API_DTO_FIELD(String, pid, ZH_WORDS_GETTER("organization.query-organization.pid"), true ,"001");
 
 	//DTO_FIELD(String, id);
 	//DTO_FIELD_INFO(id) {

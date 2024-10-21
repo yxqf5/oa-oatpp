@@ -23,14 +23,13 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class OrganizationMember: public oatpp::DTO
+class OrganizationMemberDTO: public oatpp::DTO
 {
-	DTO_INIT(OrganizationMember, DTO);
+	DTO_INIT(OrganizationMemberDTO, DTO);
 	
 	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("organization.query-organization-member.name"), true ,"Rif");
 	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("organization.query-organization-member.id"), true ,"007");
 	API_DTO_FIELD(String, xemployee, ZH_WORDS_GETTER("organization.query-organization-member.company"), true ,"01 Unoversity");
-	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
