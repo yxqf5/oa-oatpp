@@ -19,12 +19,14 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include "New/NewController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "file/FileController.h"
 #include "ws/WSController.h"
+#include "New/NewController.h"
 #endif
 
 // 如果定义了关闭Swagger文档宏
@@ -51,6 +53,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(NewController);
 
 }
 
