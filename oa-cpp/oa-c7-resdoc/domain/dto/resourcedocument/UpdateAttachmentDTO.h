@@ -29,13 +29,13 @@
 class UpdateAttachmentDTO : public oatpp::DTO
 {
 	DTO_INIT(UpdateAttachmentDTO, DTO);
-	API_DTO_FIELD(String, xid, ZH_WORDS_GETTER("productionorder.query.fields.xid"), true, "");
-	API_DTO_FIELD(String, xappid, ZH_WORDS_GETTER("productionorder.query.fields.xappid"), true, "");
-	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("productionorder.query.fields.xname"), true, "");
-	API_DTO_FIELD(String, xdescription, ZH_WORDS_GETTER("productionorder.query.fields.xdescription"), true, "");
-	API_DTO_FIELD(String, xupdatetime, ZH_WORDS_GETTER("productionorder.query.fields.xupdate_time"), true, "");
-	API_DTO_FIELD(String, xalias, ZH_WORDS_GETTER("productionorder.query.fields.xalias"), true, "");
-	API_DTO_FIELD(String, xfilename, ZH_WORDS_GETTER("productionorder.query.fields.xfile_name"), true, "");
+	API_DTO_FIELD(String, xId, ZH_WORDS_GETTER("productionorder.query.fields.xid"), true, "");
+	API_DTO_FIELD(String, xAppId, ZH_WORDS_GETTER("productionorder.query.fields.xappid"), true, "");
+	API_DTO_FIELD(String, xName, ZH_WORDS_GETTER("productionorder.query.fields.xname"), true, "");
+	API_DTO_FIELD(String, xDescription, ZH_WORDS_GETTER("productionorder.query.fields.xdescription"), true, "");
+	API_DTO_FIELD(String, xUpdateTime, ZH_WORDS_GETTER("productionorder.query.fields.xupdate_time"), true, "");
+	API_DTO_FIELD(String, xAlias, ZH_WORDS_GETTER("productionorder.query.fields.xalias"), true, "");
+	API_DTO_FIELD(String, xFileName, ZH_WORDS_GETTER("productionorder.query.fields.xfile_name"), true, "");
 };
 
 #include OATPP_CODEGEN_END(DTO)

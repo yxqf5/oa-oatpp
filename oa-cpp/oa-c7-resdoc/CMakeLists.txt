@@ -42,7 +42,7 @@ if(WIN32)
 endif()
 
 # 编译可执行文件
-add_executable (${appName} ${SC_FILES} "domain/dto/resourcedocument/AddAttachmentDTO.h" "domain/vo/resourcedocument/AddAttachmentVO.h"  "controller/resourcedocument/attachment/AttachmentController.cpp" "domain/dto/resourcedocument/UpdateAttachmentDTO.h" "domain/vo/resourcedocument/UpdateAttachmentVO.h" "domain/query/resourcedocument/UpdateAttachmentQuery.h" "controller/resourcedocument/attachment/AttachmentController.h")
+add_executable (${appName} ${SC_FILES} "domain/dto/resourcedocument/AddAttachmentDTO.h" "domain/vo/resourcedocument/AddAttachmentVO.h"  "controller/resourcedocument/attachment/AttachmentController.cpp" "domain/dto/resourcedocument/UpdateAttachmentDTO.h" "domain/vo/resourcedocument/UpdateAttachmentVO.h" "domain/query/resourcedocument/UpdateAttachmentQuery.h" "controller/resourcedocument/attachment/AttachmentController.h" "domain/do/resourcedocument/AddAttachmentDO.h" "domain/do/resourcedocument/UpdateAttachmentDO.h")
 
 # 给架构示例项目添加特有的宏
 if(${IS_ARCH_DEMO})

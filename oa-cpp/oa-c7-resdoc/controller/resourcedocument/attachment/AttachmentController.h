@@ -62,7 +62,7 @@ public:
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(UpdateAttachmentJsonVO);
-		//API_DEF_ADD_QUERY_PARAMS(String, "xid", ZH_WORDS_GETTER("productionorder.query.fields.xid"), "", true);
+		API_DEF_ADD_QUERY_PARAMS(String, "xid", ZH_WORDS_GETTER("productionorder.query.fields.xid"), "", true);
 	}
 	// 4.2 定义修改接口处理
 	ENDPOINT(API_M_PUT, "/resdoc/attachment/update", updateAttachment, BODY_DTO(UpdateAttachmentDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME)
