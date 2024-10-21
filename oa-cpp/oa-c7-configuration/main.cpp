@@ -27,7 +27,10 @@
 #ifdef LINUX
 #include "NacosClient.h"
 #endif
-
+#include"FastDfsClient.h"
+#include"ExcelComponent.h"
+#include"RocketClient.h"
+#include"MongoClient.h"
 /**
  * 解析启动参数
  * 注意：
@@ -122,11 +125,31 @@ bool getStartArg(int argc, char* argv[]) {
 #endif
 	return isSetDb;
 }
-
+//测试声明区域
+///////////////////////////////////////////////////////////////////////////////////
+//测试fastdfs
+void testDfs();
+//测试使用Execl
+void testExecl();
+//测试使用Mq
+void testMq();
+//测试mongodb
+void testMongo();
+///////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[]) {
 	// 服务器参数初始化
 	bool isSetDb = getStartArg(argc, argv);
-
+//测试调用区域
+///////////////////////////////////////////////////////////////////////////////////
+//调用fastdfs
+//testDfs();
+//调用execl
+//testExecl();
+// 调用Mq
+//testMq();
+// 调用mongo
+	testMongo();
+///////////////////////////////////////////////////////////////////////////////////
 #ifdef LINUX
 	// 创建Nacos客户端对象
 	NacosClient nacosClient(
@@ -205,3 +228,63 @@ int main(int argc, char* argv[]) {
 #endif
 	return 0;
 }
+//测试定义区域
+///////////////////////////////////////////////////////////////////////////////////
+
+void testDfs() {
+	FastDfsClient dfs("192.168.137.130");
+	std::string field=dfs.uploadFile("C:\\Users\\heyiting\\Pictures\\Screenshots\\cutecat.png");
+	std::cout << field << std::endl;
+	bool isDel=dfs.deleteFile("group1/M00/00/00/oYYBAGcQan6ARPlaAAuM_941BBU030.png");
+	if (isDel) {
+		std::cout << "删除成功" << std::endl;
+	}
+	else {
+		std::cout << "删除失败" << std::endl;
+	}
+}
+
+void testExecl() {
+	//创建Excel文件
+	ExcelComponent excel;
+	std::vector<std::vector<std::string>>data;
+	data.push_back({});
+	data[0].emplace_back("id");
+	data[0].emplace_back("age");
+	data.push_back({});
+	data[1].emplace_back("1");
+	data[1].emplace_back("18");
+	data.push_back({});
+	data[2].emplace_back("2");
+	data[2].emplace_back("11");
+	excel.writeVectorToFile("./public/execl/1.xlsx", "test", data);
+
+	//传递到fastDfs
+	auto buff = excel.writeVectorToBuff("test", data);
+	FastDfsClient dfs("192.168.137.130");
+	auto filed=dfs.uploadFile(reinterpret_cast<const char*>(buff.data()), buff.size(), "xlsx");
+	std::cout << filed << std::endl;
+
+	//读取excel文件
+	data = ExcelComponent::readIntoVector("./public/execl/1.xlsx", "test");
+	for (size_t i = 0; i < data.size(); i++) {
+		auto one = data[i];
+		for (size_t j = 0; j < one.size(); j++) {
+			std::cout << one[j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
+void testMq() {
+	RocketClient rc("192.168.137.130:9876");
+	rc.productMsgSync("tq", "wo shi xiao xi ti");
+}
+
+void testMongo() {
+	MongoClient c("mongodb://awei:123456@192.168.137.130:27017/firstDb");
+	using namespace bsoncxx::builder::basic;
+	c.addOne("tes", make_document(kvp("name", "Mongo's Burgers")));
+	c.addOne("tes", make_document(kvp("age", "19")));
+}
+///////////////////////////////////////////////////////////////////////////////////
