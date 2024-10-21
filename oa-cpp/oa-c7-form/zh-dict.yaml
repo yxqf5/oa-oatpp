@@ -1,4 +1,4 @@
-section:
+column:
  delete:
   summary: "删除栏目分类"
   id: "被删除栏目分类的id"

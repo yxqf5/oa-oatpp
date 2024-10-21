@@ -2,13 +2,12 @@
 
 #ifndef _FORM_TEMPLATE_CONTROLLER_
 #define _FORM_TEMPLATE_CONTROLLER_
-#include "oatpp-swagger/Types.hpp"
-#include "domain/GlobalInclude.h"
+
+#include "domain/vo/BaseJsonVO.h"
 #include "domain/query/FormTemplate/FormTemplateQuery.h"
 #include "domain/vo/FormTemplate/FormTemplateVO.h"
-#include "domain/vo/BaseJsonVO.h"
 #include "domain/dto/FormTemplate/FormTemplateDTO.h"
-using namespace oatpp;
+#include "../../domain/GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
 
@@ -42,8 +41,9 @@ public:
 
 private:
 	FormTemplatePageJsonVO::Wrapper execGetFormTemplate(const FormTemplateQuery::Wrapper& ftQuery);
-	Uint64JsonVO::Wrapper execAddFormTemplate(const FormTemplateQuery::Wrapper& dto);
-}
+	Uint64JsonVO::Wrapper execAddFormTemplate(const FormTemplateDTO::Wrapper& dto);
+};
 
 #include OATPP_CODEGEN_END(ApiController) //<- End Codegen
-#endif // _FORM_TEMPLATE_CONTROLLER_
+
+#endif // !_FORM_TEMPLATE_CONTROLLER_

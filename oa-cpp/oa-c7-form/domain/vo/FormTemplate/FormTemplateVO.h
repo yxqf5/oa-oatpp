@@ -4,7 +4,7 @@
 #define _FORM_TEMPLATE_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/content/management/FormTemplateDTO.h"
+#include "domain/dto/FormTemplate/FormTemplateDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

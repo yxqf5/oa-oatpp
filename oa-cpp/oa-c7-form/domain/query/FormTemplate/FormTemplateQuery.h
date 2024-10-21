@@ -3,7 +3,7 @@
 #ifndef _FORM_TEMPLATE_QUERY_
 #define _FORM_TEMPLATE_QUERY_
 
-#include "domain/GlobalInclude.h"
+#include "../../GlobalInclude.h"
 #include "domain/query/PageQuery.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
