@@ -1,0 +1,15 @@
+section:
+ delete:
+  summary: "删除栏目分类"
+  id: "被删除栏目分类的id"
+
+form-template:
+ category: "分页获取表单模板列表"
+ add: "新增表单模板"
+ field:
+  id: "表单模板id"
+  category: "表单模板分类"
+  name: "表单模板名称"
+  desciption: "表单模板描述"
+  data: "表单模板数据"
+  icon: "表单模板图标"
