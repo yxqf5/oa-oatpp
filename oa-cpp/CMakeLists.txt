@@ -169,6 +169,7 @@ endif()
 # 这是示例模块，后期可以不编译它
 #add_subdirectory ("arch-demo")
 # 在后面添加你的模块
+add_subdirectory ("oa-c7-resdoc")
 add_subdirectory ("oa-c7-form")
 add_subdirectory ("oa-c7-basicinfo")
 add_subdirectory ("oa-c7-configuration")
