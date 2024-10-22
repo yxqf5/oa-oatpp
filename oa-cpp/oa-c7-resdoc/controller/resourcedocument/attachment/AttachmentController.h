@@ -39,7 +39,7 @@ public:
 	ENDPOINT_INFO(addAttachment) 
 	{
 		// 定义接口标题
-		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("productionorder.query.summary1"));
+		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("resourcedocument.query.summary1"));
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
@@ -57,7 +57,7 @@ public:
 	ENDPOINT_INFO(updateAttachment)
 	{
 		// 定义接口标题
-		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("productionorder.query.summary2"));
+		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("resourcedocument.query.summary2"));
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式

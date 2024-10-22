@@ -29,3 +29,23 @@ content:
    xeditor: 编辑者
    xname: 名称
    xproperties: 属性
+form:
+ list:
+  summary1: 获取表单列表
+  summary2: 获取表单详情 
+  summary3: 创建栏目表单
+  picture: 表单图标
+  xid: 表单id
+  xtype: 表单类型
+  xcreatetime: 创建时间
+ details:
+  bs: 标识
+  name: 名称
+  ms: 描述
+  reado: 是否只读
+  ys: 表单样式
+  picture: 图标
+  dy: 打印
+  sc: 脚本
+  type: 样式
+  attr: 属性

@@ -29,11 +29,11 @@
 class AddAttachmentDTO : public oatpp::DTO
 {
 	DTO_INIT(AddAttachmentDTO, DTO);
-	API_DTO_FIELD(String, xId, ZH_WORDS_GETTER("productionorder.query.fields.xid"), true, "");
-	API_DTO_FIELD(String, xAppId, ZH_WORDS_GETTER("productionorder.query.fields.xappid"), true, "");
-	API_DTO_FIELD(String, xName, ZH_WORDS_GETTER("productionorder.query.fields.xname"), true, "");
-	API_DTO_FIELD(String, xDescription, ZH_WORDS_GETTER("productionorder.query.fields.xdescription"), true, "");
-	API_DTO_FIELD(String, xUpdateTime, ZH_WORDS_GETTER("productionorder.query.fields.xupdate_time"), true, "");
+	API_DTO_FIELD(String, xId, ZH_WORDS_GETTER("resourcedocument.query.fields.xid"), true, "");
+	API_DTO_FIELD(String, xAppId, ZH_WORDS_GETTER("resourcedocument.query.fields.xappid"), true, "");
+	API_DTO_FIELD(String, xName, ZH_WORDS_GETTER("resourcedocument.query.fields.xname"), true, "");
+	API_DTO_FIELD(String, xDescription, ZH_WORDS_GETTER("resourcedocument.query.fields.xdescription"), true, "");
+	API_DTO_FIELD(String, xUpdateTime, ZH_WORDS_GETTER("resourcedocument.query.fields.xupdate_time"), true, "");
 };
 
 #include OATPP_CODEGEN_END(DTO)
