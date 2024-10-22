@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _ CONFIGURATIONVO_H_
-#define _ CONFIGURATIONVO_H_
+#ifndef  _CONFIGURATIONVO
+#define _CONFIGURATIONVO
 #include "../../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)

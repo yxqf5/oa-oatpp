@@ -31,6 +31,8 @@
 #include"ExcelComponent.h"
 #include"RocketClient.h"
 #include"MongoClient.h"
+#include"RedisClient.h"
+#include"PdfComponent.h"
 /**
  * 解析启动参数
  * 注意：
@@ -44,12 +46,12 @@ bool getStartArg(int argc, char* argv[]) {
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
 	std::string dbName = "test";
-	std::string dbHost = "192.168.220.128";
+	std::string dbHost = "192.168.137.130";
 	int dbPort = 3306;
 	int dbMax = 5;
 #ifdef LINUX
 	// Nacos配置参数
-	std::string nacosAddr = "192.168.220.128:8848";
+	std::string nacosAddr = "192.168.137.130:8848";
 	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
 	std::string serviceName = "";
 	std::string regIp = "";
@@ -135,20 +137,23 @@ void testExecl();
 void testMq();
 //测试mongodb
 void testMongo();
+//测试redis
+void testRedis();
+//测试PDF报表
+void testPDF();
 ///////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[]) {
 	// 服务器参数初始化
 	bool isSetDb = getStartArg(argc, argv);
 //测试调用区域
 ///////////////////////////////////////////////////////////////////////////////////
-//调用fastdfs
+
 //testDfs();
-//调用execl
 //testExecl();
-// 调用Mq
 //testMq();
-// 调用mongo
-	testMongo();
+//testMongo();
+//testRedis();
+	testPDF();
 ///////////////////////////////////////////////////////////////////////////////////
 #ifdef LINUX
 	// 创建Nacos客户端对象
@@ -286,5 +291,26 @@ void testMongo() {
 	using namespace bsoncxx::builder::basic;
 	c.addOne("tes", make_document(kvp("name", "Mongo's Burgers")));
 	c.addOne("tes", make_document(kvp("age", "19")));
+}
+
+void testRedis() {
+	RedisClient r("192.168.137.130", 6379);
+	auto count=r.execute<long long>([](Redis* rc) {
+		return rc->rpush("list", { "a", "b", "c" });
+		});
+	std::cout << count << std::endl;
+}
+
+void testPDF() {
+	PdfComponent pdf;
+	//创建一个页面
+	HPDF_Page newPage = pdf.getNewPage();
+	//设置页面字体
+	HPDF_Page_SetFontAndSize(newPage, pdf.getCnSFont("SimSun"), 20);
+	//绘制一点文字
+	pdf.drawText("Hello world", 10, 10);
+	pdf.drawTextCenter("Good Luck To You");
+	//导出到本地
+	pdf.saveDocToFile("./public/pdf/1.pdf");
 }
 ///////////////////////////////////////////////////////////////////////////////////

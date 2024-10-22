@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef  _ATQCONTROLLER_H_
-#define _ATQCONTROLLER_H_
+#ifndef  _ATQCONTROLLER
+#define _ATQCONTROLLER
 
 #include "domain/vo/BaseJsonVO.h"
 #include"domain/vo/configuration/atq/configurationVo.h"

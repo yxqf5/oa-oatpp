@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "TestController.h"
-
+#include<iostream>
 
 StringJsonVO::Wrapper TestController::executeQueryTest(const PageQuery::Wrapper& condition)
 {
