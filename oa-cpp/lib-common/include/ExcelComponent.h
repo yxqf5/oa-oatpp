@@ -28,6 +28,7 @@
  */
 class ExcelComponent
 {
+
 private:
 	xlnt::workbook wb;
 	xlnt::worksheet sheet;

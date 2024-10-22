@@ -7,7 +7,7 @@ cmake_minimum_required (VERSION 3.8)
 set(IS_ARCH_DEMO false)
 
 # 设置文件名称
-set (appName oa-c7-basicinfo)
+set (appName oa-sample)
 
 # 包含库目录
 include_directories ("./")
@@ -16,7 +16,7 @@ include_directories ("../lib-mysql/include")
 include_directories ("../lib-common/include")
 
 # 链接库路径，程序运行的时候也在这里找
-link_directories (${PROJECT_BINARY_DIR}/lib-oatpp)
+link_directories (${PROJECT_BINARY_DIR}/lib-oatpp) 
 link_directories (${PROJECT_BINARY_DIR}/lib-mysql)
 link_directories (${PROJECT_BINARY_DIR}/lib-common)
 # 如果是Linux环境

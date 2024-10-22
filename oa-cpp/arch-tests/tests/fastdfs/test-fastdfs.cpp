@@ -56,7 +56,7 @@ protected:
 		// 设置客户端对象
 		this->client = new FastDfsClient(ip, port);
 		// 设置一个文件上传地址
-		this->filename = "E:/Images/20141011112401959.jpg.source.jpg";
+		this->filename = "D:/VS_coding/zuoye.png";
 #endif
 		// 设置url前缀
 		this->urlPrefix = "http://" + YamlHelper().getString(&thirdServerConfig, "fastdfs.nginx-servers") + "/";
