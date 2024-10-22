@@ -1,16 +1,31 @@
+column:
+ delete:
+  summary: "åˆ é™¤æ ç›®åˆ†ç±»"
+  id: "è¢«åˆ é™¤æ ç›®åˆ†ç±»çš„id"
+
+form-template:
+ category: "åˆ†é¡µè·å–è¡¨å•æ¨¡æ¿åˆ—è¡¨"
+ add: "æ–°å¢è¡¨å•æ¨¡æ¿"
+ field:
+  id: "è¡¨å•æ¨¡æ¿id"
+  category: "è¡¨å•æ¨¡æ¿åˆ†ç±»"
+  name: "è¡¨å•æ¨¡æ¿åç§°"
+  desciption: "è¡¨å•æ¨¡æ¿æè¿°"
+  data: "è¡¨å•æ¨¡æ¿æ•°æ®"
+  icon: "è¡¨å•æ¨¡æ¿å›¾æ ‡"
 content:
  management:
   delete:
-   summary: É¾³ıÀ¸Ä¿±íµ¥
+   summary: åˆ é™¤æ ç›®è¡¨å•
   filed:
-   xid: ±íµ¥id(²»¿ÉĞŞ¸Ä)
-   xcreateTime: ´´½¨Ê±¼ä
-   xsequence: ĞòÁĞ
-   xupdateTime: ¸üĞÂÊ±¼ä
-   xdistributeFactor: ·Ö·¢Òò×Ó
-   xalias: ±ğÃû
-   xdata: Êı¾İ
-   xdescription: ÃèÊö
-   xeditor: ±à¼­Õß
-   xname: Ãû³Æ
-   xproperties: ÊôĞÔ
+   xid: è¡¨å•id(ä¸å¯ä¿®æ”¹)
+   xcreateTime: åˆ›å»ºæ—¶é—´
+   xsequence: åºåˆ—
+   xupdateTime: æ›´æ–°æ—¶é—´
+   xdistributeFactor: åˆ†å‘å› å­
+   xalias: åˆ«å
+   xdata: æ•°æ®
+   xdescription: æè¿°
+   xeditor: ç¼–è¾‘è€…
+   xname: åç§°
+   xproperties: å±æ€§
