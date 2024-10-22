@@ -1,0 +1,16 @@
+content:
+ management:
+  delete:
+   summary: 删除栏目表单
+  filed:
+   xid: 表单id(不可修改)
+   xcreateTime: 创建时间
+   xsequence: 序列
+   xupdateTime: 更新时间
+   xdistributeFactor: 分发因子
+   xalias: 别名
+   xdata: 数据
+   xdescription: 描述
+   xeditor: 编辑者
+   xname: 名称
+   xproperties: 属性

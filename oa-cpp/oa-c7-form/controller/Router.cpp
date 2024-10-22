@@ -19,12 +19,12 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-
+#include "content/management/FormController.h"
 #ifdef HTTP_SERVER_DEMO
-#include "user/UserController.h"
-#include "sample/SampleController.h"
-#include "file/FileController.h"
-#include "ws/WSController.h"
+//#include "user/UserController.h"
+//#include "sample/SampleController.h"
+//#include "file/FileController.h"
+//#include "ws/WSController.h"
 #endif
 
 // 如果定义了关闭Swagger文档宏
@@ -49,22 +49,22 @@ void Router::initRouter()
 #ifdef HTTP_SERVER_DEMO
 	createSampleRouter();
 #endif
-
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(FormController);
 
 }
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
-	// 绑定示例控制器
-	ROUTER_SIMPLE_BIND(SampleController);
-	// 绑定用户控制器
-	ROUTER_SIMPLE_BIND(UserController);
-	// 绑定文件控制器
-	ROUTER_SIMPLE_BIND(FileController);
-	
-	// 绑定WebSocket控制器
-	router->addController(WSContorller::createShared());
+	//// 绑定示例控制器
+	//ROUTER_SIMPLE_BIND(SampleController);
+	//// 绑定用户控制器
+	//ROUTER_SIMPLE_BIND(UserController);
+	//// 绑定文件控制器
+	//ROUTER_SIMPLE_BIND(FileController);
+	//
+	//// 绑定WebSocket控制器
+	//router->addController(WSContorller::createShared());
 }
 #endif

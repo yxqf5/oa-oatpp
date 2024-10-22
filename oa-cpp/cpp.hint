@@ -1,0 +1,13 @@
+// 提示文件帮助 Visual Studio IDE 解释 Visual C++ 标识符,
+// 如函数和宏的名称。
+// 有关详细信息，请参见 https://go.microsoft.com/fwlink/?linkid=865984
+#define ZH_WORDS_GETTER(_KEY_) YamlHelper().getString(&(ServerInfo::getInstance().getZhDictNode()), _KEY_)
+#define ZH_WORDS_GETTER(_KEY_) YamlHelper().getString(&zhDictNode, _KEY_)
+#define API_DTO_FIELD_DEFAULT(_TYPE_, _NAME_, _DESCRIPTION_) DTO_FIELD(_TYPE_, _NAME_); DTO_FIELD_INFO(_NAME_) { info->description = _DESCRIPTION_; }
+// 提示文件帮助 Visual Studio IDE 解释 Visual C++ 标识符,
+// 如函数和宏的名称。
+// 有关详细信息，请参见 https://go.microsoft.com/fwlink/?linkid=865984
+#define ENDPOINT(METHOD, PATH, __VA_ARGS__) OATPP_MACRO_EXPAND(OATPP_MACRO_MACRO_BINARY_SELECTOR(OATPP_MACRO_API_CONTROLLER_ENDPOINT_MACRO_, (__VA_ARGS__)) (METHOD, PATH, __VA_ARGS__))
+#define API_HANDLER_ENDPOINT_AUTH(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _PARAM_MACRO_, _EXECUTE_) ENDPOINT(_METHOD_, _PATH_, __ENDPOINT_FUN_NAME__, _PARAM_MACRO_, API_HANDLER_AUTH_PARAME) { API_HANDLER_RESP_VO(_EXECUTE_); }
+#define BODY_DTO(TYPE, __VA_ARGS__) OATPP_MACRO_API_CLIENT_PARAM(OATPP_MACRO_API_CLIENT_BODY_DTO, TYPE, (__VA_ARGS__))
+#define BODY_DTO(TYPE, __VA_ARGS__) OATPP_MACRO_API_CONTROLLER_PARAM(OATPP_MACRO_API_CONTROLLER_BODY_DTO, OATPP_MACRO_API_CONTROLLER_BODY_DTO_INFO, TYPE, (__VA_ARGS__))
