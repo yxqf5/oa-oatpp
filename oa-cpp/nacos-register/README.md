@@ -37,10 +37,10 @@
 
 ```yaml
 ---
-- ip: 192.168.220.128
+- ip: 192.168.137.130
   port: 8090 
   name: feign-cpp-demo1
-- ip: 192.168.220.128 
+- ip: 192.168.137.130 
   port: 8091
   name: feign-cpp-demo2
 ```

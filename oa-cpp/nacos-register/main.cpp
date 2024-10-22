@@ -32,7 +32,7 @@ void getStartArg(int argc, char* argv[]) {
 	// 服务器端口
 	std::string serverPort = "8070";
 	// Nacos配置参数
-	std::string nacosAddr = "192.168.220.128:8848";
+	std::string nacosAddr = "192.168.137.130:8848";
 	std::string nacosNs = "4833404f-4b82-462e-889a-3c508160c6b4";
 	std::string regFileId = "demo-nacos-cli";
 

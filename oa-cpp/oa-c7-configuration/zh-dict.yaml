@@ -1,0 +1,29 @@
+configuration:
+ atq:
+  get:
+   summary: 获取栏目分类列表
+  put:
+   summary: 修改栏目分类
+  add:
+   summary: 新增栏目分类
+  choose:
+   summary: 选择分类表单
+   edit: 发布类编辑表单
+   read: 发布类阅读表单
+  name:
+   summary: 名称
+  type:
+   summary: 分类表单对应的示意
+  field: 
+   summary: 分类属性
+  basic:
+   summary: 基本属性
+   logo: 分类标识
+   name: 分类别名
+   type: 文档类型
+   auto: 发布时是否发送信息
+  process: 使用流程
+  range: 可见范围
+  publish: 发布者
+  manage: 管理者
+
