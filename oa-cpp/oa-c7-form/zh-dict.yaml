@@ -34,14 +34,14 @@ form:
   summary1: 获取表单列表
   summary2: 获取表单详情 
   summary3: 创建栏目表单
-  picture: 表单图标
-  xid: 表单id
-  xtype: 表单类型
+  xname: 表单名称
+  xalias: 表单别名
+  xid: 表单列表id
   xcreatetime: 创建时间
  details:
   bs: 标识
   name: 名称
-  ms: 描述
+  description: 描述
   reado: 是否只读
   ys: 表单样式
   picture: 图标

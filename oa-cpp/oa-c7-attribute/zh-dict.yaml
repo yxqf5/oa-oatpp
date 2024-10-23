@@ -14,10 +14,11 @@ newdto:
   autosave: 自动保存
   edit: 默认编辑表单
   read: 默认阅读表单
+  summary: 获取栏目属性
 
  put:
+  summary: 修改栏目属性
   id: 数据唯一标识   
-  summary: 栏目属性
   picture: 图标
   fw: 可见范围
   publisher: 发布者
