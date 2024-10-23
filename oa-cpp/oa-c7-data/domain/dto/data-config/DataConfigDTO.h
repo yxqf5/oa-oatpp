@@ -31,11 +31,11 @@ class DataConfigDTO : public oatpp::DTO
 {
 	DTO_INIT(DataConfigDTO, DTO);
 	// 名称
-	API_DTO_FIELD(String, name, ZH_WORDS_GETTER("data-config.field.xname"), true, {});
+	API_DTO_FIELD(String, xname, ZH_WORDS_GETTER("data-config.field.xname"), true, {});
 	// 别名
-	API_DTO_FIELD(String, alias, ZH_WORDS_GETTER("data-config.field.xalias"), true, {});
+	API_DTO_FIELD(String, xalias, ZH_WORDS_GETTER("data-config.field.xalias"), true, {});
 	// 描述
-	API_DTO_FIELD_DEFAULT(String, description, ZH_WORDS_GETTER("data-config.field.xdescription"));
+	API_DTO_FIELD_DEFAULT(String, xdescription, ZH_WORDS_GETTER("data-config.field.xdescription"));
 	// 项目
 	API_DTO_FIELD_DEFAULT(String, project, ZH_WORDS_GETTER("data-config.field.project"));
 	// 类型

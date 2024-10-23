@@ -38,7 +38,7 @@ public: // 定义接口
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
-		API_DEF_ADD_RSP_JSON_WRAPPER(DataConfigJsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	// 3.2 定义新增接口处理
 	ENDPOINT(API_M_POST, "/data/add-dataconfig", AddDataConfig, BODY_DTO(DataConfigDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {

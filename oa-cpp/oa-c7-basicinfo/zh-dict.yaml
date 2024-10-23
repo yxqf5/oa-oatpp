@@ -1,0 +1,16 @@
+organization:
+ query-organization: 
+  summary: 查询组织的组织名称
+  name: 组织名称
+  id: 数据唯一标识
+  pid: 上属组织唯一标识
+ query-organization-member:
+  summary: 查询组织成员名称
+  company: 所属组织名称
+  name: 组织成员名称
+  id: 数据唯一标识
+person:
+ query-person: 
+  summary: 查询人员的名称
+  name: 人员名称
+  id: 数据唯一标识
