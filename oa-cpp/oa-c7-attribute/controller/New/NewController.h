@@ -17,7 +17,7 @@ public:
 	//获取栏目属性接口
 	ENDPOINT_INFO(queryNew) {
 		// 定义接口标题
-		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("newdto.put.summary"));
+		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("newdto.get.summary"));
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		API_DEF_ADD_AUTH();
 		// 定义响应参数格式
@@ -37,7 +37,7 @@ public:
 	}
 	//新建栏目接口
 	// 3.1 定义修改接口描述
-	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("newdto.get.summary"), modifyNew, StringJsonVO::Wrapper);
+	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("newdto.put.summary"), modifyNew, StringJsonVO::Wrapper);
 	// 3.2 定义修改接口处理
 	API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/New", modifyNew, BODY_DTO(NewDTO::Wrapper, dto), executeModifyNew(dto));
 

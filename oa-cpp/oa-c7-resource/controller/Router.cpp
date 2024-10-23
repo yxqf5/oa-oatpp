@@ -20,6 +20,7 @@
 #include "Router.h"
 #include "ApiHelper.h"
 #include "AttaDetails/AttaDetailsController.h"
+#include "controller/resourcedocument/attachment/AttachmentController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
@@ -52,6 +53,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(AttaDetailsController);
+	ROUTER_SIMPLE_BIND(AttachmentController);
 	
 }
 

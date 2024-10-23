@@ -2,3 +2,15 @@ atta:
  list:
   summary1: 获取附件列表
   summary2: 获取附件详情 
+resourcedocument:
+ query:
+  summary1: 新增附件
+  summary2: 修改附件
+  fields:
+    xid: 文件编号
+    xname: 名称
+    xdescription: 附件信息
+    xupdate_time: 上次更新时间
+    xappid: app编号
+    xalias: 别名
+    xfile_name: 实际文件名
