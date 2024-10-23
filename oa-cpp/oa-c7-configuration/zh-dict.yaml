@@ -27,3 +27,7 @@ configuration:
   publish: 发布者
   manage: 管理者
 
+column:
+ delete:
+  summary: 删除栏目分类
+

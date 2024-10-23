@@ -19,8 +19,8 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "./FormTemplate/FormTemplateController.h"
-#include "./column/ColumnController.h"
+
+
 #include "FormList/FormListController.h"
 #include "content/management/FormController.h"
 #include "FormDetails/FormDetailsController.h"
@@ -54,9 +54,9 @@ void Router::initRouter()
 	createSampleRouter();
 #endif
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(FormTemplateController);
+	
 	ROUTER_SIMPLE_BIND(FormListController);
-	ROUTER_SIMPLE_BIND(ColumnController);
+	
 	ROUTER_SIMPLE_BIND(FormController);
 	ROUTER_SIMPLE_BIND(FormDetailsController);
 

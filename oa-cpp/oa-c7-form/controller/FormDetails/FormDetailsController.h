@@ -43,7 +43,7 @@ public:
 	ENDPOINT_INFO(addForm) {
 		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("form.list.summary3"));
 		API_DEF_ADD_AUTH();
-		API_DEF_ADD_RSP_JSON_WRAPPER(Uint64JsonVO);
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 	}
 	ENDPOINT(API_M_POST, "/FormDetails", addForm, BODY_DTO(FormDetailsDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execAddForm(dto));
@@ -52,7 +52,7 @@ private:
 	StringJsonVO::Wrapper executeQueryFormDetails(const String& id);
 	//执行修改个人信息
 	//StringJsonVO::Wrapper executeModifyNew(const NewDTO::Wrapper& dto);
-	Uint64JsonVO::Wrapper execAddForm(const FormDetailsDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execAddForm(const FormDetailsDTO::Wrapper& dto);
 };
 
 

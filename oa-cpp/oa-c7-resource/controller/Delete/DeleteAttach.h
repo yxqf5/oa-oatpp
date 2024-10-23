@@ -34,7 +34,7 @@ public: // 定义接口
 	// 1. 获取组织名称接口
 	ENDPOINT_INFO(deleteAttatch) {
 		// 定义接口标题
-		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("delete attatchment"));
+		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("delete.resource"));
 		// 定义默认授权参数（可选定义，如果定义了，下面ENDPOINT里面需要加入API_HANDLER_AUTH_PARAME）
 		//API_DEF_ADD_AUTH();
 		// 定义响应参数格式

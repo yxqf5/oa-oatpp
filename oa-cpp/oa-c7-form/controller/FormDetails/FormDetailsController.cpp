@@ -6,7 +6,7 @@ StringJsonVO::Wrapper FormDetailsController::executeQueryFormDetails(const Strin
     return {};
 }
 
-Uint64JsonVO::Wrapper FormDetailsController::execAddForm(const FormDetailsDTO::Wrapper& dto)
+StringJsonVO::Wrapper FormDetailsController::execAddForm(const FormDetailsDTO::Wrapper& dto)
 {
 	//auto jvo = Uint64JsonVO::createShared();
 	//jvo->success(0);

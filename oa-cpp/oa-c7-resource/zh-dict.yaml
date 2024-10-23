@@ -2,6 +2,14 @@ atta:
  list:
   summary1: 获取附件列表
   summary2: 获取附件详情 
+  xid: 附件id
+  xname: 附件名称
+  xfileName: 文件路径名称
+  xlength: 文件大小
+  xcreatetime: 创建时间
+  xdescription: 附件信息
+  xdata: 附件内容
+  xalias: 附件别名
 resourcedocument:
  query:
   summary1: 新增附件
@@ -14,3 +22,6 @@ resourcedocument:
     xappid: app编号
     xalias: 别名
     xfile_name: 实际文件名
+ 
+delete:
+ resource: 删除附件    

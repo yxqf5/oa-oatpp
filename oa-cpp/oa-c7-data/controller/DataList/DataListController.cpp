@@ -10,7 +10,7 @@ StringJsonVO::Wrapper DataListController::executeQueryDataDetails(const String& 
 {
     return {};
 }
-Uint64JsonVO::Wrapper DataListController::execAdddata(const DataDetailsDTO::Wrapper& dto)
+Uint64JsonVO::Wrapper DataListController::execdeletedata(const String& id)
 {
 	//auto jvo = Uint64JsonVO::createShared();
 	//jvo->success(0);

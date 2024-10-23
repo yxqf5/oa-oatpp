@@ -31,3 +31,8 @@ data:
   sc: 脚本
   type: 样式
   attr: 属性
+  xalias: 别名
+  xsequence: 序列
+
+delete:
+ data: 删除数据配置    
