@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include "data-config/DataConfigController.h"
 #include "DataList/DataListController.h"
 
 #ifdef HTTP_SERVER_DEMO
@@ -53,6 +54,7 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(DataListController);
+	ROUTER_SIMPLE_BIND(DataConfigController);
 }
 
 #ifdef HTTP_SERVER_DEMO

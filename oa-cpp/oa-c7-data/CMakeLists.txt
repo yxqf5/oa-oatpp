@@ -4,10 +4,12 @@
 cmake_minimum_required (VERSION 3.8)
 
 # 标记是否是示例架构模块，业务模块需要将此致修改为false
+
 set(IS_ARCH_DEMO false)
 
 # 设置文件名称
 set (appName oa-c7-data)
+set (appName data-config)
 
 # 包含库目录
 include_directories ("./")
