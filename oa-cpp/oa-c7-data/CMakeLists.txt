@@ -9,7 +9,7 @@ set(IS_ARCH_DEMO false)
 
 # 设置文件名称
 set (appName oa-c7-data)
-set (appName data-config)
+
 
 # 包含库目录
 include_directories ("./")

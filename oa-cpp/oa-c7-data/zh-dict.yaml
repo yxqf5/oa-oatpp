@@ -10,7 +10,8 @@ data-config:
   project: 项目
   type: 类型
   value: 值
-  xid: 唯一标识data:
+  xid: 唯一标识
+data:
  list:
   sequence: 序列
   picture: 图标
