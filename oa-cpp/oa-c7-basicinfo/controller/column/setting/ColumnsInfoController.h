@@ -83,7 +83,8 @@ public: // 定义接口
 	//API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/column-remove/{id}", removeSample, PATH(UInt64, id), execRemoveSample(id));
 	ENDPOINT(API_M_DEL, "/column-remove/{id}", removeColumns, QUERY(String,id), API_HANDLER_AUTH_PARAME) {
 		// 呼叫执行函数响应结果
-		API_HANDLER_RESP_VO(execRemoveColumns(id));
+		String id1 = authObject->getPayload().getId();
+		API_HANDLER_RESP_VO(execRemoveColumns(id1));
 	}
 
 

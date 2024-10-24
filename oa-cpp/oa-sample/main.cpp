@@ -29,6 +29,8 @@
 #endif
 
 #include "RocketClient.h"
+//#include "MongoClient.h"
+#include "RedisClient.h"
 
 /**
  * 解析启动参数
@@ -130,6 +132,8 @@ bool getStartArg(int argc, char* argv[]) {
 
 
 void  testMq();
+//void testMongodb();
+void  testRedis();
 
 
 
@@ -140,7 +144,9 @@ int main(int argc, char* argv[]) {
 
 
 	////////////////////////////test
-	testMq();
+	//testMq();
+	//testMongodb();
+	testRedis();
 
 
 
@@ -230,9 +236,26 @@ int main(int argc, char* argv[]) {
 }
 
 
+//mongo_db
+//void testMongodb() {
+//	MongoClient c("mongodb://awei:123456@192.168.223.133:27017/firstDb");
+//	using namespace bsoncxx::builder::basic;
+//	c.addOne("test",make_document(kvp("name","mong`s sdfsadf")));
+//	c.addOne("test", make_document(kvp("age", "19")));
+//
+//}
+
 void  testMq() {
 	RocketClient rc("192.168.223.133:9876");
 	auto l = rc.productMsgSync("tpppp","wo8466");
 	std::cout << l << std::endl;
 
+}
+
+void testRedis() {
+	RedisClient r("192.168.223.133",6379); 
+	auto count =r.execute<long long>([](Redis* rc) {
+		return rc->rpush("list",{"p","u","c12"}); 
+	});
+	std::cout << count << std::endl;
 }

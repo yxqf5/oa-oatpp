@@ -44,10 +44,10 @@ protected:
 		YamlHelper yaml;
 		string host = yaml.getString(&node, "spring.redis.host");
 		string port = yaml.getString(&node, "spring.redis.port");
-		string password = yaml.getString(&node, "spring.redis.password");
+		//string password = yaml.getString(&node, "spring.redis.password");
 
 		// 创建RedisClient对象
-		this->rc = new RedisClient(host, atoi(port.c_str()), password);
+		this->rc = new RedisClient(host, atoi(port.c_str())/*, password */ );
 	}
 	void TearDown() override
 	{
