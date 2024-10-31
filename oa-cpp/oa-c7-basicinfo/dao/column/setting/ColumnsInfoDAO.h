@@ -38,9 +38,13 @@ public:
 	
 	// 通过姓名查询数据
 	//list<ColumnsInfoDO> selectByName(const string& name);
+
+
+	//通过id查询是否有这条数据;用于判断id是否存在
+	std::list<ColumnsInfoDO> QueryById(const ColumnsInfoDO& qObj);
 		
-	//查询是否有这条数据
-	uint64_t count(const ColumnsInfoDO& qObj);
+	//通过name查询是否有这条数据;用于判断name是否存在
+	uint64_t QueryByName(const ColumnsInfoDO& qObj);
 
 	// 插入数据
 	uint64_t insert(const ColumnsInfoDO& iObj);

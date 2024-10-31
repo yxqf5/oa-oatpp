@@ -18,7 +18,7 @@
 */
 #include "stdafx.h"
 #include "ColumnsInfoDAO.h"
-//#include "SampleMapper.h"
+#include "ColumnsInfoMapper.h"
 #include <sstream>
 
 //定义条件解析宏，减少重复代码
@@ -66,38 +66,48 @@ if (query->age) { \
 //	return sqlSession->executeQuery<SampleDO, SampleMapper>(sql, mapper, "%s", name);
 //}
 
-uint64_t ColumnsInfoDAO::count(const ColumnsInfoDO & qObj)
+std::list<ColumnsInfoDO> ColumnsInfoDAO::QueryById(const ColumnsInfoDO & qObj) {
+	
+	//string sql="SELECT COUNT(*) FROM `cms_appinfo` WHERE `xid`= ?";
+	string sql = "SELECT xid,xappName FROM cms_appinfo WHERE `xid`=? ";
+	ColumnsInfoMapper mapper;
+	return sqlSession->executeQuery<ColumnsInfoDO,ColumnsInfoMapper>(sql,mapper,"%s",qObj.getXid());
+}
+
+
+uint64_t ColumnsInfoDAO::QueryByName(const ColumnsInfoDO & qObj)
 {
 	// 使用字符串流构建查询 SQL 语句
 	stringstream sql;
-	sql << "SELECT COUNT(*) FROM `cms_categoryinfo` WHERE `xcategoryName` = ?";
+	sql << "SELECT COUNT(*) FROM `cms_appinfo` WHERE `xappName` = ?";
 
 	// 生成 SQL 字符串
 	string sqlStr = sql.str();
 
 	// 执行查询并返回结果
-	return sqlSession->executeQueryNumerical(sqlStr, "%s", qObj.getXcategoryName());
+	return sqlSession->executeQueryNumerical(sqlStr, "%s", qObj.getXappName());
 }
 
 
 
 uint64_t ColumnsInfoDAO::insert(const ColumnsInfoDO& iObj)
 {
-	//string sql = "INSERT INTO `cms_categoryinfo` (`xcategoryName`, `xcategoryAlias`, `xdescription`,`xcategorySeq`,`xdocumentType`,`xformId`,`xreadFormId`,`xcategoryIcon`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	//string sql = "INSERT INTO `cms_appinfo` (`xcategoryName`, `xcategoryAlias`, `xdescription`,`xcategorySeq`,`xdocumentType`,`xformId`,`xreadFormId`,`xcategoryIcon`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	
-	string sql = "INSERT INTO `cms_categoryinfo` (`xid`, `xcategoryName`, `xcategoryAlias`, `xdescription`, `xcategorySeq`, `xdocumentType`, `xformId`, `xreadFormId`, `xcategoryIcon`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s",iObj.getXid(), iObj.getXcategoryName(), iObj.getXcategoryAlias(), iObj.getXdescription(), iObj.getXcategorySeq(), iObj.getXdocumentType(), iObj.getXformId(), iObj.getXreadFormId(), iObj.getXcategoryIcon());
+	
+	string sql = "INSERT INTO `cms_appinfo` (`xid`, `xappName`, `xappAlias`, `xdescription`, `xappInfoSeq`, `xappType`, `xdefaultEditForm`, `xdefaultReadForm`, `xappIcon`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s",iObj.getXid(), iObj.getXappName(), iObj.getXappAlias(), iObj.getXdescription(), iObj.getXappInfoSeq(), iObj.getXappType(), iObj.getXdefaultEditForm(), iObj.getXdefaultReadForm(), iObj.getXappIcon());
 }
 
 int ColumnsInfoDAO::update(const ColumnsInfoDO& uObj)
 {
-	// string sql = "UPDATE `cms_categoryinfo` SET `name`=?, `sex`=?, `age`=? WHERE `id`=?";
-	string sql = "UPDATE `cms_categoryinfo` SET `xcategoryName`=?, `xcategoryAlias`=?, `xdescription`=?, `xcategorySeq`=?,`xdocumentType`=?, `xformId`=?, `xreadFormId`=?, `xcategoryIcon`=?  WHERE `xid`=?";
-	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s", uObj.getXcategoryName(),uObj.getXcategoryAlias(),uObj.getXdescription(),uObj.getXcategorySeq(), uObj.getXdocumentType(), uObj.getXformId(), uObj.getXreadFormId(), uObj.getXcategoryIcon(),uObj.getXid());
+	// string sql = "UPDATE `cms_appinfo` SET `name`=?, `sex`=?, `age`=? WHERE `id`=?";
+	string sql = "UPDATE `cms_appinfo` SET  `xappName`=? , `xappAlias`=? , `xdescription`=? , `xappInfoSeq`=? , `xappType`=? , `xdefaultEditForm`=? , `xdefaultReadForm`=? , `xappIcon`=? WHERE `xid`=?";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s", uObj.getXappName(), uObj.getXappAlias(), uObj.getXdescription(), uObj.getXappInfoSeq(), uObj.getXappType(), uObj.getXdefaultEditForm(), uObj.getXdefaultReadForm(), uObj.getXappIcon(), uObj.getXid());
 }
 
 int ColumnsInfoDAO::deleteById(uint64_t id)
 {
-	string sql = "DELETE FROM `cms_categoryinfo` WHERE `xid`=?";
+	string sql = "DELETE FROM `cms_appinfo` WHERE `xid`=?";
 	return sqlSession->executeUpdate(sql, "%ull", id);
 }

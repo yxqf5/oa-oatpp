@@ -16,9 +16,10 @@ public:
 	// 分页查询所有数据
 	//SamplePageDTO::Wrapper listAll(const SampleQuery::Wrapper& query);
 	
-	//查询数据库中是否存在这个
+	//查询数据库中是否存在这个,通过name查询
 	bool QueryData(const ColumnsInfoDTO::Wrapper& dto);
-
+	//通过id查询数据
+	ColumnsInfoDTO::Wrapper QueryDataById(const ColumnsInfoDTO::Wrapper& dto);
 	// 保存数据
 	uint64_t saveData(const ColumnsInfoDTO::Wrapper& dto);
 	// 修改数据

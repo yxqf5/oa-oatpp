@@ -11,24 +11,47 @@
 bool ColumnsInfoService::QueryData(const ColumnsInfoDTO::Wrapper& dto) {
 	ColumnsInfoDO data;
 
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XcategoryName, name, XcategoryAlias, othername, Xdescription, description, XcategorySeq, sort, XdocumentType, type, XformId, defaultEditForm, XreadFormId, defaultReadForm, XcategoryIcon, image);
+	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XcategoryName, name, XcategoryAlias, othername, Xdescription, description, XcategorySeq, sort, XdocumentType, type, XformId, defaultEditForm, XreadFormId, defaultReadForm, XcategoryIcon, image);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XappName, name, XappAlias, othername, Xdescription, description, XappInfoSeq, sort, XappType, type, XdefaultEditForm, defaultEditForm, XdefaultReadForm, defaultReadForm, XappIcon, image);
 
 	ColumnsInfoDAO dao;
 	
 	
-	return dao.count(data);
+	return dao.QueryByName(data);
 
 }
 
+
+ColumnsInfoDTO::Wrapper ColumnsInfoService::QueryDataById(const ColumnsInfoDTO::Wrapper& dto) {
+	ColumnsInfoDO data;
+
+	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XcategoryName, name, XcategoryAlias, othername, Xdescription, description, XcategorySeq, sort, XdocumentType, type, XformId, defaultEditForm, XreadFormId, defaultReadForm, XcategoryIcon, image);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XappName, name, XappAlias, othername, Xdescription, description, XappInfoSeq, sort, XappType, type, XdefaultEditForm, defaultEditForm, XdefaultReadForm, defaultReadForm, XappIcon, image);
+
+	ColumnsInfoDAO dao;
+
+	auto res = ColumnsInfoDTO::createShared();
+	ColumnsInfoDO it=*dao.QueryById(data).begin();
+	std::cout <<"it.getXid()= " << it.getXid() << "   it.getXappName()=" << it.getXappName() << std::endl;
+
+	//for(auto i: it){
+	//}
+	ZO_STAR_DOMAIN_FILED_DO_TO_DTO(res,it,id,Xid,name,XappName);
+	res->name = it.getXappName();
+
+
+return res;
+
+}
 
 
 // ±£´æÊý¾Ý
 uint64_t ColumnsInfoService::saveData(const ColumnsInfoDTO::Wrapper& dto) {
 	
 	ColumnsInfoDO data;
-	//×Ö¶ÎÆ¥Åä         `xcategoryName`, `xcategoryAlias`, `xdescription`,`xcategorySeq`,`xdocumentType`,`xformId`,`xreadFormId`,`xcategoryIcon`
-	ZO_STAR_DOMAIN_DTO_TO_DO(data,dto, Xid,id,XcategoryName,name, XcategoryAlias,othername, Xdescription,description, XcategorySeq,sort, XdocumentType,type ,XformId, defaultEditForm ,XreadFormId,defaultReadForm ,XcategoryIcon, image);
-
+	//×Ö¶ÎÆ¥Åä         `XcategoryName`, `XcategoryAlias`, `Xdescription`,`XcategorySeq`,`XdocumentType`,`XformId`,`XreadFormId`,`XcategoryIcon`
+	ZO_STAR_DOMAIN_DTO_TO_DO(data,dto, Xid,id,XappName,name, XappAlias,othername, Xdescription,description, XappInfoSeq,sort, XappType,type ,XdefaultEditForm, defaultEditForm ,XdefaultReadForm,defaultReadForm , XappIcon, image);
+	string sql = "INSERT INTO `cms_appinfo` (`Xid`, ``, ``, ``, ``, ``, ``, ``, ``) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	ColumnsInfoDAO dao;
    auto it=	dao.insert(data);
 	//auto it = dao.update(data);
@@ -42,7 +65,9 @@ bool ColumnsInfoService::updateData(const ColumnsInfoDTO::Wrapper& dto) {
 	ColumnsInfoDO data;
 
 	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id,XcategoryName, name, XcategoryAlias, othername, Xdescription, description, XcategorySeq, sort, XdocumentType, type, XformId, defaultEditForm, XreadFormId, defaultReadForm, XcategoryIcon, image);
-	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XcategoryName, name, XcategoryAlias, othername, Xdescription, description, XcategorySeq, sort, XdocumentType, type, XformId, defaultEditForm, XreadFormId, defaultReadForm, XcategoryIcon, image);
+	//ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XcategoryName, name, XcategoryAlias, othername, Xdescription, description, XcategorySeq, sort, XdocumentType, type, XformId, defaultEditForm, XreadFormId, defaultReadForm, XcategoryIcon, image);
+	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, Xid, id, XappName, name, XappAlias, othername, Xdescription, description, XappInfoSeq, sort, XappType, type, XdefaultEditForm, defaultEditForm, XdefaultReadForm, defaultReadForm, XappIcon, image);
+
 
 
 	ColumnsInfoDAO dao;
