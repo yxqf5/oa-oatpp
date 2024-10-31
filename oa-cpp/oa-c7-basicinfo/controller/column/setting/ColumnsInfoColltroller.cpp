@@ -14,27 +14,38 @@
 ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO::Wrapper dto) {
 	auto jvo = ColumnsInfoJsonVO::createShared();
 
-	//根据参考系统,栏目名字不能为空,不能重复
+	//根据参考系统,栏目名字不能为空
 	if (!dto->name) {
+		jvo->init(dto, RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+	//id not null
+	if (!dto->id) {
 		jvo->init(dto, RS_PARAMS_INVALID);
 		return jvo;
 	}
 	
 	//设置插入的xid键值
 	//dto->id =dto->name + dto->othername;
-
 	////////
+
 	ColumnsInfoService service;
 	auto it = service.QueryData(dto);
 	std::cout <<"the it value : " << it << std::endl;
-	//查询name是否存在 --如果存在querydata返回1,然后返回异常
+	//查询name是否存在,不能重复 --如果存在querydata返回1,然后返回异常
 	if (it) {
 		jvo->init(dto, RS_PARAMS_INVALID);
 		return jvo;
 	}
+
+
 	auto tage = service.saveData(dto);
+
 	if (tage>0) {
+
 		jvo->success(dto);
+
 	}
 	return jvo;
 
@@ -54,8 +65,6 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO:
 
 
 	return jvo;*/
-
-	return {};
 }
 
 
@@ -63,25 +72,35 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execModifyColumns(ColumnsInfoD
 	
 	auto jvo = ColumnsInfoJsonVO::createShared();
 
-	//根据参考系统,栏目名字不能为空,不能重复
+	//根据参考系统,栏目名字不能为空
 	if (!dto->name) {
 		jvo->init(dto, RS_PARAMS_INVALID);
 		return jvo;
 	}
 
-	//设置插入的xid键值
-	//dto->id =dto->name + dto->othername;
+	if (!dto->id) {
+		jvo->init(dto, RS_PARAMS_INVALID);
+		return jvo;
+	}
+
+
 
 	////////
+
 	ColumnsInfoService service;
+	auto tmp=service.QueryDataById(dto);
+	std::cout<<"the tmp id and name ,select form cms_appinfo : id: " <<tmp->id->c_str()<<"   name: " << tmp->name->c_str() << endl;
+	if (tmp->name != dto->name) {
 
 	auto it = service.QueryData(dto);
-	std::cout << "the it value : " << it << std::endl;
+	std::cout << "the dto name value is exist : " << it << std::endl;
 
 	//查询name是否存在 --如果存在querydata返回1,然后返回异常
 	if (it) {
 		jvo->init(dto, RS_PARAMS_INVALID);
 		return jvo;
+	}
+
 	}
 
 	auto tage = service.updateData(dto);
@@ -94,31 +113,7 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execModifyColumns(ColumnsInfoD
 
 	}
 
-	////////
-
-
-
-
 	return jvo;
-
-	//如果需要上传头像
-	//if (dto->image)
-	//{
-	//	ZO_CREATE_DFS_CLIENT_URL(dfs, urlPrefix);
-	//	std::string fieldName = dfs.uploadFile(dto->image);//////////////
-	//	std::cout << "upload fieldname is : " << fieldName << std::endl;
-	// }
-
-	//ColumnsInfoService service;
-	//auto jvo = ColumnsInfoJsonVO::createShared();
-	//auto result = service.updateData(dto);
-
-	//jvo->success(dto);
-	//
-
-	//return jvo;
-
-	//return {};
 }
 
 
