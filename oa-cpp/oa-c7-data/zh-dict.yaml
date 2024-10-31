@@ -1,0 +1,38 @@
+data-config:
+ post:
+  summary: 新增数据配置
+ put:
+  summary: 修改数据配置
+ field:
+  xname: 名称
+  xalias: 别名
+  xdescription: 描述
+  project: 项目
+  type: 类型
+  value: 值
+  xid: 唯一标识
+data:
+ list:
+  sequence: 序列
+  picture: 图标
+  xid: id
+  xname: 字典名
+  summary1: 获取数据配置列表
+  summary2: 获取数据配置详情
+  summary3: 新增数据配置
+ details:
+  bs: 标识
+  name: 名称
+  ms: 描述
+  reado: 是否只读
+  ys: 表单样式
+  picture: 图标
+  dy: 打印
+  sc: 脚本
+  type: 样式
+  attr: 属性
+  xalias: 别名
+  xsequence: 序列
+
+delete:
+ data: 删除数据配置    

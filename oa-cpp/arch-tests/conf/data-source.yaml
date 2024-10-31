@@ -9,3 +9,4 @@ spring:
   data:
     mongodb:
       uri: mongodb://awei:123456@192.168.223.133:27017/firstDb
+

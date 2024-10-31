@@ -116,6 +116,9 @@ Uint64JsonVO::Wrapper SampleController::execRemoveSample(const UInt64& id)
 
 SampleJsonVO::Wrapper SampleController::execQueryOne(const UInt64& id, const PayloadDTO& payload)
 {
+	/*auto jvo = SampleJsonVO::createShared();
+	jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+	return jvo;*/
 	// 创建客户端对象
 	API_CLIENT_CREATE(ac, om, SampleApiClient, "sample-api");
 	// 构建凭证

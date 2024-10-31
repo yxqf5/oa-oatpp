@@ -19,14 +19,15 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-
+#include "data-config/DataConfigController.h"
+#include "DataList/DataListController.h"
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
 #include "sample/SampleController.h"
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
-
+#include "GetLists/GetLists.h"
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -51,7 +52,9 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-
+	//ROUTER_SIMPLE_BIND(GetListsController);
+	ROUTER_SIMPLE_BIND(DataListController);
+	ROUTER_SIMPLE_BIND(DataConfigController);
 }
 
 #ifdef HTTP_SERVER_DEMO

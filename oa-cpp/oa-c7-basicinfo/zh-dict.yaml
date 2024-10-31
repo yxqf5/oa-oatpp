@@ -21,5 +21,21 @@ column:
     default-edit-form: 默认编辑表单
     default-read-form: 默认编辑表单
     image: 栏目图标2
-    
+organization:
+ query-organization: 
+  summary: 查询组织的组织名称
+  name: 组织名称
+  id: 数据唯一标识
+  pid: 上属组织唯一标识
+ query-organization-member:
+  summary: 查询组织成员名称
+  company: 所属组织名称
+  name: 组织成员名称
+  id: 数据唯一标识
+person:
+ query-person: 
+  summary: 查询人员的名称
+  name: 人员名称
+  id: 数据唯一标识
+  page: 查询页数标号
     

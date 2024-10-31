@@ -1,0 +1,51 @@
+column:
+ delete:
+  summary: "删除栏目分类"
+  id: "被删除栏目分类的id"
+
+form-template:
+ category: "分页获取表单模板列表"
+ add: "新增表单模板"
+ field:
+  id: "表单模板id"
+  category: "表单模板分类"
+  name: "表单模板名称"
+  desciption: "表单模板描述"
+  data: "表单模板数据"
+  icon: "表单模板图标"
+content:
+ management:
+  delete:
+   summary: 删除栏目表单
+  filed:
+   xid: 表单id(不可修改)
+   xcreateTime: 创建时间
+   xsequence: 序列
+   xupdateTime: 更新时间
+   xdistributeFactor: 分发因子
+   xalias: 别名
+   xdata: 数据
+   xdescription: 描述
+   xeditor: 编辑者
+   xname: 名称
+   xproperties: 属性
+form:
+ list:
+  summary1: 获取表单列表
+  summary2: 获取表单详情 
+  summary3: 创建栏目表单
+  xname: 表单名称
+  xalias: 表单别名
+  xid: 表单列表id
+  xcreatetime: 创建时间
+ details:
+  bs: 标识
+  name: 名称
+  description: 描述
+  reado: 是否只读
+  ys: 表单样式
+  picture: 图标
+  dy: 打印
+  sc: 脚本
+  type: 样式
+  attr: 属性

@@ -37,6 +37,7 @@ public:
 		data.setSex(resultSet->getString(3));
 		data.setAge(resultSet->getInt(4));
 		return data;
+
 	}
 };
 

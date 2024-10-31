@@ -59,7 +59,7 @@ public: // 定义接口
 	//修改栏目
 	// 
 	// 3.1 定义修改接口描述
-	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("column.post.summary"), modifyColumnsInfo, StringJsonVO::Wrapper);
+	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("column.post.summary"), modifyColumnsInfo, ColumnsInfoJsonVO::Wrapper);
 	// 3.2 定义修改接口处理
 	//API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/column-setting", modifyColumnsInfo, BODY_DTO(ColumnsInfoDTO::Wrapper, dto), execModifySample(dto));
 	ENDPOINT(API_M_PUT, "/column-post", modifyColumnsInfo, BODY_DTO(ColumnsInfoDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
@@ -75,7 +75,7 @@ public: // 定义接口
 	ENDPOINT_INFO(removeColumns) {
 
 		// 定义标题和返回类型以及授权支持
-		API_DEF_ADD_COMMON_AUTH(ZH_WORDS_GETTER("column.remove.summary"), ColumnsInfoJsonVO::Wrapper);
+		API_DEF_ADD_COMMON_AUTH(ZH_WORDS_GETTER("column.remove.summary"), Uint64JsonVO::Wrapper);
 		// 定义其他路径参数说明
 		//API_DEF_ADD_PATH_PARAMS(UInt64, "id", ZH_WORDS_GETTER("sample.field.id"), 1, true);
 	}
@@ -92,8 +92,8 @@ public: // 定义接口
 
 private: // 定义接口执行函数
 	ColumnsInfoJsonVO::Wrapper execAddColumns(ColumnsInfoDTO::Wrapper dto);
-	StringJsonVO::Wrapper execModifyColumns(ColumnsInfoDTO::Wrapper dto);
-	ColumnsInfoJsonVO::Wrapper execRemoveColumns(String id); 
+	ColumnsInfoJsonVO::Wrapper execModifyColumns(ColumnsInfoDTO::Wrapper dto);
+	Uint64JsonVO::Wrapper execRemoveColumns(String id);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
