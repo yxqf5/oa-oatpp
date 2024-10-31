@@ -6,27 +6,37 @@
 #include "../../../service/column/setting/ColumnsInfoService.h"
 #include "NacosClient.h"
 #include "FastDfsClient.h"
-
+#include<iostream>
+//#include <unordered_set>
 
 
 
 ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO::Wrapper dto) {
-	/*auto jvo = ColumnsInfoJsonVO::createShared();
+	auto jvo = ColumnsInfoJsonVO::createShared();
 
+	//根据参考系统,栏目名字不能为空,不能重复
 	if (!dto->name) {
-		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
+		jvo->init(dto, RS_PARAMS_INVALID);
 		return jvo;
 	}
+	
+	//设置插入的xid键值
+	//dto->id =dto->name + dto->othername;
 
+	////////
 	ColumnsInfoService service;
-
-	auto tage = service.saveData(dto);
-
-	if (tage>0) {
-		jvo->success(UInt64(tage));
+	auto it = service.QueryData(dto);
+	std::cout <<"the it value : " << it << std::endl;
+	//查询name是否存在 --如果存在querydata返回1,然后返回异常
+	if (it) {
+		jvo->init(dto, RS_PARAMS_INVALID);
+		return jvo;
 	}
-*/
-
+	auto tage = service.saveData(dto);
+	if (tage>0) {
+		jvo->success(dto);
+	}
+	return jvo;
 
 	////如果需要上传头像
 	//if (dto->image)
@@ -35,39 +45,61 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO:
 	//	std::string fieldName = dfs.uploadFile(dto->image);//////////////
 	//	std::cout << "upload fieldname is : " << fieldName << std::endl;
 	//}
-	ColumnsInfoService service;
+
+	/*ColumnsInfoService service;
 	auto jvo = ColumnsInfoJsonVO::createShared();
 	auto result = service.updateData(dto);
 
 	jvo->success(dto);
 
 
-	return jvo;
+	return jvo;*/
 
 	return {};
 }
+
+
 ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execModifyColumns(ColumnsInfoDTO::Wrapper dto) {
-	/*
+	
 	auto jvo = ColumnsInfoJsonVO::createShared();
 
-	if (!dto->id) {
-		jvo->init(UInt64(-1),RS_PARAMS_INVALID);
+	//根据参考系统,栏目名字不能为空,不能重复
+	if (!dto->name) {
+		jvo->init(dto, RS_PARAMS_INVALID);
 		return jvo;
 	}
 
+	//设置插入的xid键值
+	//dto->id =dto->name + dto->othername;
 
+	////////
 	ColumnsInfoService service;
+
+	auto it = service.QueryData(dto);
+	std::cout << "the it value : " << it << std::endl;
+
+	//查询name是否存在 --如果存在querydata返回1,然后返回异常
+	if (it) {
+		jvo->init(dto, RS_PARAMS_INVALID);
+		return jvo;
+	}
 
 	auto tage = service.updateData(dto);
 	if (!tage)
 	{
-		jvo->fail(tage);
+		jvo->fail(dto);
 	}
 	else {
-		jvo->success(tage);
+		jvo->success(dto);
 
 	}
-	return jvo;*/
+
+	////////
+
+
+
+
+	return jvo;
 
 	//如果需要上传头像
 	//if (dto->image)
@@ -77,17 +109,19 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execModifyColumns(ColumnsInfoD
 	//	std::cout << "upload fieldname is : " << fieldName << std::endl;
 	// }
 
-	ColumnsInfoService service;
-	auto jvo = ColumnsInfoJsonVO::createShared();
-	auto result = service.updateData(dto);
+	//ColumnsInfoService service;
+	//auto jvo = ColumnsInfoJsonVO::createShared();
+	//auto result = service.updateData(dto);
 
-	jvo->success(dto);
-	
-	//治愈 致郁
-	return jvo;
+	//jvo->success(dto);
+	//
+
+	//return jvo;
 
 	//return {};
 }
+
+
 Uint64JsonVO::Wrapper ColumnsInfoController::execRemoveColumns(String id){
 	
 	auto jvo = Uint64JsonVO::createShared();
@@ -96,6 +130,7 @@ Uint64JsonVO::Wrapper ColumnsInfoController::execRemoveColumns(String id){
 		jvo->init(UInt64(-1), RS_PARAMS_INVALID);
 		return jvo;
 	}
+
 	string tmp=id->c_str();
 	int i = stoi(tmp);
 

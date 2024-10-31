@@ -1,11 +1,11 @@
 #pragma once
 
 
-#ifndef _COLUMNSINFOVO_
-#define _COLUMNSINFOVO_
+#ifndef _COLUMNSINFO_VO_
+#define _COLUMNSINFO_VO_
 
 #include "../../../GlobalInclude.h"
-//#include "../../../dto/column/setting/ColumnsInfoDTO.h"
+#include "../../../dto/column/setting/ColumnsInfoDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -45,4 +45,4 @@ class ColumnsInfoJsonVO : public JsonVO<ColumnsInfoDTO::Wrapper>
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif //!_COLUMNSINFOVO1_
+#endif //!_COLUMNSINFO_VO_
