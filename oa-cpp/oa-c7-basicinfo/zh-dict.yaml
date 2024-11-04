@@ -38,4 +38,56 @@ person:
   name: 人员名称
   id: 数据唯一标识
   page: 查询页数标号
-    
+  
+  cms_appinfo:
+  xid:
+    summary: 唯一标识符，用于区分不同的应用程序。
+  xcreate-time:
+    summary: 记录应用程序创建的时间。
+  xsequence:
+    summary: 可能用于排序或表示应用程序的版本或状态。
+  xupdate-time:
+    summary: 记录应用程序最后更新时间。
+  xdistribute-factor:
+    summary: 可能表示分发因素，具体含义取决于系统设计。
+  xall-people-publish:
+    summary: 是否允许所有人发布内容的标志。
+  xall-people-view:
+    summary: 是否允许所有人查看内容的标志。
+  xshow-all-documents:
+    summary: 是否显示所有文档的标志。
+  xanonymous-able:
+    summary: 是否允许匿名访问的标志。
+  xapp-alias:
+    summary: 应用程序的别名，通常用于显示。
+  xapp-icon:
+    summary: 应用程序的图标，可能以 Base64 编码形式存储。
+  xapp-info-seq:
+    summary: 应用程序的信息序列，可能用于排序或索引。
+  xapp-memo:
+    summary: 应用程序的备注或说明信息。
+  xapp-name:
+    summary: 应用程序的名称。
+  xapp-type:
+    summary: 应用程序的类型，例如 Web 应用、移动应用等。
+  xcreator-identity:
+    summary: 创建者的身份标识，可能是用户ID或角色。
+  xcreator-person:
+    summary: 创建者的姓名或用户名。
+  xcreator-top-unit-name:
+    summary: 创建者所在的顶级单位名称。
+  xcreator-unit-name:
+    summary: 创建者所在的单位名称。
+  xdefault-edit-form:
+    summary: 默认的编辑表单标识。
+  xdefault-read-form:
+    summary: 默认的阅读表单标识。
+  xdescription:
+    summary: 应用程序的描述信息。
+  xdocument-type:
+    summary: 文档类型，可能与应用程序处理的文档类型有关。
+  xicon-color:
+    summary: 应用程序图标的颜色。
+  xsend-notify:
+    summary: 是否发送通知的标志。
+

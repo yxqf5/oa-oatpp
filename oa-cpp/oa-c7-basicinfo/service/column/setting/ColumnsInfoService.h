@@ -21,7 +21,7 @@ public:
 	//通过id查询数据
 	ColumnsInfoDTO::Wrapper QueryDataById(const ColumnsInfoDTO::Wrapper& dto);
 	// 保存数据
-	uint64_t saveData(const ColumnsInfoDTO::Wrapper& dto);
+	uint64_t saveData(const ColumnsInfoDTO::Wrapper& dto, const PayloadDTO& payload);
 	// 修改数据
 	bool updateData(const ColumnsInfoDTO::Wrapper& dto);
 	// 通过ID删除数据

@@ -54,8 +54,8 @@ void Router::initRouter()
 
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(ColumnsInfoController); 
-	ROUTER_SIMPLE_BIND(PersonController);
-	ROUTER_SIMPLE_BIND(OrganizationController);
+	//ROUTER_SIMPLE_BIND(PersonController);
+	//ROUTER_SIMPLE_BIND(OrganizationController);
 	
 }
 

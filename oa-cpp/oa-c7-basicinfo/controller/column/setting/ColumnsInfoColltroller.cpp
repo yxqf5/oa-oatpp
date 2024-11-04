@@ -11,7 +11,7 @@
 
 
 
-ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO::Wrapper dto) {
+ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO::Wrapper dto,const PayloadDTO& payload) {
 	auto jvo = ColumnsInfoJsonVO::createShared();
 
 	//根据参考系统,栏目名字不能为空
@@ -32,7 +32,7 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO:
 
 	ColumnsInfoService service;
 	auto it = service.QueryData(dto);
-	std::cout <<"the it value : " << it << std::endl;
+	//std::cout <<"the it value : " << it << std::endl;
 	//查询name是否存在,不能重复 --如果存在querydata返回1,然后返回异常
 	if (it) {
 		jvo->init(dto, RS_PARAMS_INVALID);
@@ -40,12 +40,14 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execAddColumns(ColumnsInfoDTO:
 	}
 
 
-	auto tage = service.saveData(dto);
+	auto tage = service.saveData(dto,payload);
 
 	if (tage>0) {
 
 		jvo->success(dto);
-
+	}
+	else {
+		jvo->fail(dto);
 	}
 	return jvo;
 
@@ -78,6 +80,7 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execModifyColumns(ColumnsInfoD
 		return jvo;
 	}
 
+	//id 不能为空
 	if (!dto->id) {
 		jvo->init(dto, RS_PARAMS_INVALID);
 		return jvo;
@@ -88,18 +91,21 @@ ColumnsInfoJsonVO::Wrapper ColumnsInfoController::execModifyColumns(ColumnsInfoD
 	////////
 
 	ColumnsInfoService service;
-	auto tmp=service.QueryDataById(dto);
-	std::cout<<"the tmp id and name ,select form cms_appinfo : id: " <<tmp->id->c_str()<<"   name: " << tmp->name->c_str() << endl;
+	auto tmp = service.QueryDataById(dto);
+	//std::cout<<"the tmp id and name ,select form cms_appinfo : id: " <<tmp->id->c_str()<<"   name: " << tmp->name->c_str() << endl;
+	//name是否更改,若更改了则检查是否已存在.name未更改则不用查重
 	if (tmp->name != dto->name) {
 
-	auto it = service.QueryData(dto);
-	std::cout << "the dto name value is exist : " << it << std::endl;
+		//name查重
+		auto it = service.QueryData(dto);
 
-	//查询name是否存在 --如果存在querydata返回1,然后返回异常
-	if (it) {
-		jvo->init(dto, RS_PARAMS_INVALID);
-		return jvo;
-	}
+		//std::cout << "the dto name value is exist : " << it << std::endl;
+		
+		//查询name是否存在 --如果存在querydata返回1,然后返回异常
+		if (it) {
+			jvo->init(dto, RS_PARAMS_INVALID);
+			return jvo;
+		}
 
 	}
 

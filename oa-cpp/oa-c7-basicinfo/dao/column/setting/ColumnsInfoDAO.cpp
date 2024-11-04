@@ -20,6 +20,7 @@
 #include "ColumnsInfoDAO.h"
 #include "ColumnsInfoMapper.h"
 #include <sstream>
+#include <ctime>
 
 //定义条件解析宏，减少重复代码
 #define SAMPLE_TERAM_PARSE(query, sql) \
@@ -66,6 +67,8 @@ if (query->age) { \
 //	return sqlSession->executeQuery<SampleDO, SampleMapper>(sql, mapper, "%s", name);
 //}
 
+
+
 std::list<ColumnsInfoDO> ColumnsInfoDAO::QueryById(const ColumnsInfoDO & qObj) {
 	
 	//string sql="SELECT COUNT(*) FROM `cms_appinfo` WHERE `xid`= ?";
@@ -90,19 +93,16 @@ uint64_t ColumnsInfoDAO::QueryByName(const ColumnsInfoDO & qObj)
 
 
 
-uint64_t ColumnsInfoDAO::insert(const ColumnsInfoDO& iObj)
+int ColumnsInfoDAO::insert(const ColumnsInfoDO& iObj)
 {
-	//string sql = "INSERT INTO `cms_appinfo` (`xcategoryName`, `xcategoryAlias`, `xdescription`,`xcategorySeq`,`xdocumentType`,`xformId`,`xreadFormId`,`xcategoryIcon`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-	
-	
-	string sql = "INSERT INTO `cms_appinfo` (`xid`, `xappName`, `xappAlias`, `xdescription`, `xappInfoSeq`, `xappType`, `xdefaultEditForm`, `xdefaultReadForm`, `xappIcon`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	return sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s",iObj.getXid(), iObj.getXappName(), iObj.getXappAlias(), iObj.getXdescription(), iObj.getXappInfoSeq(), iObj.getXappType(), iObj.getXdefaultEditForm(), iObj.getXdefaultReadForm(), iObj.getXappIcon());
+	string sql = "INSERT INTO `cms_appinfo` (`xid`,`xcreateTime`,`xsequence`,`xupdateTime`, `xappName`, `xappAlias`, `xdescription`, `xappInfoSeq`, `xappType`, `xdefaultEditForm`, `xdefaultReadForm`, `xappIcon`,`xcreatorIdentity`,`xcreatorPerson`,`xcreatorTopUnitName`,`xcreatorUnitName`) VALUES (?, now() ,?, now(), ?,?,?,?, ?, ?, ?, ?,?,?,?,?)";
+	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s",iObj.getXid(),iObj.getXsequence(), iObj.getXappName(), iObj.getXappAlias(), iObj.getXdescription(), iObj.getXappInfoSeq(), iObj.getXappType(), iObj.getXdefaultEditForm(), iObj.getXdefaultReadForm(), iObj.getXappIcon(), iObj.getXcreatorIdentity(), iObj.getXcreatorPerson(), iObj.getXcreatorTopUnitName(), iObj.getXcreatorUnitName());
 }
 
 int ColumnsInfoDAO::update(const ColumnsInfoDO& uObj)
 {
 	// string sql = "UPDATE `cms_appinfo` SET `name`=?, `sex`=?, `age`=? WHERE `id`=?";
-	string sql = "UPDATE `cms_appinfo` SET  `xappName`=? , `xappAlias`=? , `xdescription`=? , `xappInfoSeq`=? , `xappType`=? , `xdefaultEditForm`=? , `xdefaultReadForm`=? , `xappIcon`=? WHERE `xid`=?";
+	string sql = "UPDATE `cms_appinfo` SET `xupdateTime`=now(), `xappName`=? , `xappAlias`=? , `xdescription`=? , `xappInfoSeq`=? , `xappType`=? , `xdefaultEditForm`=? , `xdefaultReadForm`=? , `xappIcon`=? WHERE `xid`=?";
 	return sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s", uObj.getXappName(), uObj.getXappAlias(), uObj.getXdescription(), uObj.getXappInfoSeq(), uObj.getXappType(), uObj.getXdefaultEditForm(), uObj.getXdefaultReadForm(), uObj.getXappIcon(), uObj.getXid());
 }
 

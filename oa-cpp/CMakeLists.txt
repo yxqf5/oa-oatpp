@@ -172,12 +172,12 @@ add_subdirectory ("arch-demo")
 #add_subdirectory ("oa-c7-resdoc")
 #add_subdirectory ("oa-c7-form")
 add_subdirectory ("oa-c7-basicinfo")
-<<<<<<< HEAD
-add_subdirectory("oa-sample")
 
-=======
+#add_subdirectory("oa-sample")
+
+
 #add_subdirectory ("oa-c7-configuration")
 #add_subdirectory("oa-c7-attribute")
 #add_subdirectory("oa-c7-data")
 #add_subdirectory("oa-c7-resource")
->>>>>>> c7-yxqf-change_do_dao
+

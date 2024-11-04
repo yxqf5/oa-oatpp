@@ -47,7 +47,7 @@ public:
 	uint64_t QueryByName(const ColumnsInfoDO& qObj);
 
 	// 插入数据
-	uint64_t insert(const ColumnsInfoDO& iObj);
+	int insert(const ColumnsInfoDO& iObj);
 	// 修改数据
 	int update(const ColumnsInfoDO& uObj);
 	// 通过ID删除数据
